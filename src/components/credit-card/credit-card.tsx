@@ -48,6 +48,7 @@ function CreditCard({
   recalculateSize,
   render,
   style,
+  hideButton,
   ...props
 }: CreditCardProps) {
   const { payments, card, setCard } = useForm();
@@ -125,7 +126,7 @@ function CreditCard({
         {!card && <LoadingCard />}
       </div>
 
-      {props.hideButton ? null : typeof render === 'function' ? (
+      {hideButton ? null : typeof render === 'function' ? (
         render(CreditCardButton)
       ) : (
         <CreditCardButton {...buttonProps}>{children ?? 'Pay'}</CreditCardButton>
