@@ -16,6 +16,7 @@ function RenderPaymentForm(
       id: 'rswps-form',
     },
     overrides,
+    theme,
     ...props
   }: PaymentFormProps,
   ref: React.LegacyRef<HTMLDivElement>
@@ -27,6 +28,7 @@ function RenderPaymentForm(
       cardTokenizeResponseReceived={cardTokenizeResponseReceived}
       locationId={locationId}
       overrides={overrides}
+      theme={theme}
     >
       <div data-testid="rswps-form" {...formProps} ref={ref} role="form">
         {children}

@@ -20,7 +20,7 @@ const FormContext = React.createContext<FormContextType>({
   setCard: () => undefined,
 });
 
-function FormProvider({ applicationId, locationId, children, overrides, ...props }: FormProviderProps) {
+function FormProvider({ applicationId, locationId, children, overrides, theme, ...props }: FormProviderProps) {
   const [instance, setInstance] = React.useState<Square.Payments>();
   const [createPaymentRequest] = React.useState<undefined | Square.PaymentRequestOptions>(() =>
     props.createPaymentRequest?.()
@@ -83,6 +83,7 @@ function FormProvider({ applicationId, locationId, children, overrides, ...props
     payments: instance,
     card,
     setCard,
+    theme,
   };
 
   return <FormContext.Provider value={context}>{children}</FormContext.Provider>;

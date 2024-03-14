@@ -45,4 +45,7 @@ export type PaymentFormProps = {
     /** The URL of the Square payment form script. */
     scriptSrc?: string;
   };
+  theme?: {
+    loadingColor?: string;
+  };
 };

@@ -51,7 +51,7 @@ function CreditCard({
   hideButton,
   ...props
 }: CreditCardProps) {
-  const { payments, card, setCard } = useForm();
+  const { payments, card, setCard, theme } = useForm();
 
   const options: Square.CardOptions = React.useMemo(() => {
     const baseOptions = {
@@ -123,7 +123,7 @@ function CreditCard({
   return (
     <>
       <div {...props} data-testid="rswps-card-container" id={id} style={{ minHeight: 89 }}>
-        {!card && <LoadingCard />}
+        {!card && <LoadingCard {...(theme?.loadingColor ? { style: { background: theme.loadingColor } } : {})} />}
       </div>
 
       {hideButton ? null : typeof render === 'function' ? (

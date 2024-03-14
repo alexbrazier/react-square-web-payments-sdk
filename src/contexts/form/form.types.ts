@@ -32,6 +32,9 @@ export type FormContextType = {
   createPaymentRequest?: Square.PaymentRequestOptions;
   card?: Square.Card;
   setCard: React.Dispatch<React.SetStateAction<Square.Card | undefined>>;
+  theme?: {
+    loadingColor?: string;
+  };
 };
 
 export type FormProviderProps = {
@@ -160,5 +163,8 @@ export type FormProviderProps = {
   overrides?: {
     /** The URL of the Square payment form script. */
     scriptSrc?: string;
+  };
+  theme?: {
+    loadingColor?: string;
   };
 };

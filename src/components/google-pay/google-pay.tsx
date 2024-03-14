@@ -35,7 +35,7 @@ const GooglePay = ({
   ...props
 }: GooglePayProps): JSX.Element | null => {
   const [googlePay, setGooglePay] = React.useState<Square.GooglePay | undefined>(() => undefined);
-  const { cardTokenizeResponseReceived, createPaymentRequest, payments } = useForm();
+  const { cardTokenizeResponseReceived, createPaymentRequest, payments, theme } = useForm();
   const containerRef = React.useRef<HTMLDivElement>(null);
 
   const options: Square.GooglePayButtonOptions = React.useMemo(() => {
@@ -144,7 +144,9 @@ const GooglePay = ({
 
   return (
     <div {...props} id={id} ref={containerRef}>
-      {!googlePay ? <ButtonLoader /> : null}
+      {!googlePay ? (
+        <ButtonLoader {...(theme?.loadingColor ? { style: { background: theme.loadingColor } } : {})} />
+      ) : null}
     </div>
   );
 };
