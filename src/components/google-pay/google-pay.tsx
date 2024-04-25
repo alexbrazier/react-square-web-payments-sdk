@@ -130,6 +130,7 @@ const GooglePay = ({
 
     return () => {
       abortController.abort();
+      googlePay?.destroy();
     };
   }, [createPaymentRequest, payments, options]);
 
