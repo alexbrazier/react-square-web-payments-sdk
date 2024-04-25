@@ -167,4 +167,5 @@ export type FormProviderProps = {
   theme?: {
     loadingColor?: string;
   };
+  alwaysRender?: boolean;
 };

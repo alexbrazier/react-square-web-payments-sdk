@@ -20,7 +20,15 @@ const FormContext = React.createContext<FormContextType>({
   setCard: () => undefined,
 });
 
-function FormProvider({ applicationId, locationId, children, overrides, theme, ...props }: FormProviderProps) {
+function FormProvider({
+  applicationId,
+  locationId,
+  children,
+  overrides,
+  theme,
+  alwaysRender,
+  ...props
+}: FormProviderProps) {
   const [instance, setInstance] = React.useState<Square.Payments>();
   const [createPaymentRequest] = React.useState<undefined | Square.PaymentRequestOptions>(() =>
     props.createPaymentRequest?.()
@@ -75,12 +83,12 @@ function FormProvider({ applicationId, locationId, children, overrides, theme, .
     return <ErrorScreen />;
   }
 
-  if (!instance) return null;
+  if (!instance && !alwaysRender) return null;
 
   const context: FormContextType = {
     cardTokenizeResponseReceived: cardTokenizeResponseReceivedCallback,
     createPaymentRequest,
-    payments: instance,
+    payments: instance ?? null,
     card,
     setCard,
     theme,

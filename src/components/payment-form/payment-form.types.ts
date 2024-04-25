@@ -48,4 +48,5 @@ export type PaymentFormProps = {
   theme?: {
     loadingColor?: string;
   };
+  alwaysRender?: boolean;
 };
