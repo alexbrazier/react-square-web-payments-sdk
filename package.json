@@ -1,5 +1,5 @@
 {
-  "name": "@aejbrazier/react-square-web-payments-sdk",
+  "name": "@squareda/react-square-web-payments-sdk",
   "version": "3.3.0",
   "homepage": "https://weareseeed.github.io/react-square-web-payments-sdk/",
   "bugs": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:alexbrazier/react-square-web-payments-sdk.git"
+    "url": "git@github.com:squareda/react-square-web-payments-sdk.git"
   },
   "license": "MIT",
   "author": "Seeed LLC. <sales@seeed.us> (https://seeed.us)",
@@ -95,6 +95,7 @@
     "react": "^16 || ^17 || ^18 || ^19"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   }
 }
